@@ -38,8 +38,4 @@
 
 ## Demo Videos (YouTube)
 
-- **`w1` (`bug_1_circles`, `HAND = +1`, `DELTA = 0.25`):** https://youtu.be/your-w1-video-id
-- **`w2` (`bug_2_boxes`, `HAND = +1`, `DELTA = 0.25`):** https://youtu.be/your-w2-video-id
-- **`w3` (`bug_3_concave`, `HAND = +1`, `DELTA = 0.25`):** https://youtu.be/your-w3-video-id
-- **`w1_naive` (`bug_1_circles`, `HAND = +1`, `DELTA = -1e6`):** https://youtu.be/your-w1-naive-video-id
-- **`w3_right` (`bug_3_concave`, `HAND = -1`, `DELTA = 0.25`):** https://youtu.be/your-w3-right-video-id
+> https://youtu.be/xP-tRCLrVRE
