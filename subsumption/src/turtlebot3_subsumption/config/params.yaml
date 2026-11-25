@@ -1,0 +1,71 @@
+avoid_node:
+  ros__parameters:
+    use_sim_time: true
+    scan_topic: "/scan"
+    output_topic: "/avoid/cmd_vel"
+    critical_distance: 0.22
+    danger_distance: 0.32
+    clear_distance: 0.37
+    influence_distance: 0.48
+    front_arc_deg: 55.0
+    escape_linear_speed: 0.12
+    reverse_linear_speed: -0.09
+    escape_angular_speed: 1.05
+
+wander_node:
+  ros__parameters:
+    use_sim_time: true
+    output_topic: "/wander/cmd_vel"
+    publish_rate_hz: 10.0
+    linear_speed: 0.15
+    turn_linear_speed: 0.04
+    min_angular_speed: 0.35
+    max_angular_speed: 0.80
+    min_turn_duration: 1.0
+    max_turn_duration: 2.2
+    min_cruise_duration: 2.5
+    max_cruise_duration: 4.5
+    random_seed: -1
+
+explore_node:
+  ros__parameters:
+    use_sim_time: true
+    scan_topic: "/scan"
+    output_topic: "/explore/cmd_vel"
+    inhibit_topic: "/explore/inhibit"
+    fov_deg: 240.0
+    sector_width_deg: 32.0
+    sector_step_deg: 10.0
+    explore_min_clearance: 1.25
+    replan_front_threshold: 0.75
+    min_plan_hold: 1.5
+    look_interval: 4.5
+    look_duration: 0.30
+    linear_speed: 0.18
+    max_angular_speed: 0.85
+    angular_kp: 1.15
+
+inhibitor_wander:
+  ros__parameters:
+    use_sim_time: true
+    lower_topic: "/wander/cmd_vel"
+    upper_topic: "/explore/inhibit"
+    output_topic: "/wander/inhibited_cmd_vel"
+    timespan: 1.5
+    upper_msg_type: "bool"
+
+suppressor_l1_l2:
+  ros__parameters:
+    use_sim_time: true
+    lower_topic: "/wander/inhibited_cmd_vel"
+    upper_topic: "/explore/cmd_vel"
+    output_topic: "/subsumption/nav_cmd_vel"
+    timespan: 1.0
+
+suppressor_safety:
+  ros__parameters:
+    use_sim_time: true
+    lower_topic: "/subsumption/nav_cmd_vel"
+    upper_topic: "/avoid/cmd_vel"
+    output_topic: "/cmd_vel"
+    timespan: 0.5
