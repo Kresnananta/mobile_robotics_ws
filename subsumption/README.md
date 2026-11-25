@@ -2,7 +2,7 @@
 
 - **Name:** Anak Agung Ngurah Agung Kresna Ananta
 - **NRP:** 5024241085
-- **Course:** Mobile Robotics — Computer Engineering, ITS
+- **Course:** Mobile Robotics - Computer Engineering, ITS
 - **Reference Paper:** Minglong Li et al., *"Subsumption Model Implemented on ROS for Mobile Robots"* (National University of Defense Technology, IEEE 2016)
 
 ---
@@ -88,7 +88,7 @@ ros2 launch turtlebot3_subsumption level1_wander.launch.py
 ros2 launch turtlebot3_subsumption level2_explore.launch.py
 ```
 
-*(Optional CSV trajectory logging — disabled by default to keep `rqt_graph` clean:)*
+*(Optional CSV trajectory logging, disabled by default to keep `rqt_graph` clean:)*
 
 ```bash
 ros2 launch turtlebot3_subsumption level2_explore.launch.py \
@@ -131,6 +131,22 @@ docker exec -it -e DISPLAY=$DISPLAY -e ROS_DOMAIN_ID=85 ros2_humble bash -c \
 
 ---
 
-## 5. Demo Video (YouTube)
+## 5. Simulation & Architecture Screenshots
 
-> *(Add your YouTube demo link here once uploaded)*
+### Level 0 — Avoid Contact (`avoid_node`)
+![Level 0 Avoid Simulation](results/img/avoid.png)
+
+### Level 0 + 1 — Avoid + Wander (`suppressor_safety`)
+![Level 1 Wander Simulation](results/img/wander.png)
+
+### Level 0 + 1 + 2 — Full Subsumption (`explore_node` + `inhibitor_wander` + `suppressor_l1_l2`)
+![Level 2 Explore Simulation](results/img/explore.png)
+
+### ROS 2 Computation Graph (`rqt_graph` — Level 2)
+![ROS 2 rqt_graph](results/img/rqt_graph.png)
+
+---
+
+## 6. Demo Video (YouTube)
+
+> [https://youtu.be/QgggRl7rOAk](https://youtu.be/QgggRl7rOAk)
